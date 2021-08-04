@@ -11,8 +11,14 @@ describe("Tickets",()=>{
         cy.get("#requests").type("Vegetarin");
         cy.get("#signature").type(`${firstName} ${lastName}`);
     })
-    it.only("Select four tickets", ()=>{
+    it("Select four tickets", ()=>{
         cy.get("#ticket-quantity").select("4");
+    })
+    it.only("Select vip tickets type", ()=>{
+        cy.get("#vip").check();
+        cy.get("#general").check();
+        cy.get("#vip").check();
+        
     })
     it("has 'TICKETBOX' header's heading" , () => {});
 });
