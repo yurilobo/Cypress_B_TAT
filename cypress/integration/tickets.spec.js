@@ -20,12 +20,30 @@ describe("Tickets",()=>{
         cy.get("#vip").check();
         
     })
-    it.only("Select checkboxs ", ()=>{
+    it("Select checkboxs ", ()=>{
         cy.get("#friend").check();
         cy.get("#publication").check();
         cy.get("#social-media").check();
         
     })
   
-    it("has 'TICKETBOX' header's heading" , () => {});
+    it("has 'TICKETBOX' header's heading" , () => {
+        cy.get("header h1").should("contain", "TICKETBOX");
+
+    });
+    it.only("alerts on invalid email", ()=>{
+        cy.get("#email")
+            .as("email")//alias apelido para #email
+            .type("teste1-gmail.com");
+
+        cy.get("#email.invalid")
+            .as("email.invalid")
+            .should("exist");
+
+        cy.get("@email")//como cypress interprea o alias
+            .clear()
+            .type("teste1@gmail.com");
+
+        cy.get("#email.invalid").should("not.exist");
+    });
 });
