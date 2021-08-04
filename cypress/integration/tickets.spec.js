@@ -14,11 +14,18 @@ describe("Tickets",()=>{
     it("Select four tickets", ()=>{
         cy.get("#ticket-quantity").select("4");
     })
-    it.only("Select vip tickets type", ()=>{
+    it("Select vip tickets type", ()=>{
         cy.get("#vip").check();
         cy.get("#general").check();
         cy.get("#vip").check();
         
     })
+    it.only("Select checkboxs ", ()=>{
+        cy.get("#friend").check();
+        cy.get("#publication").check();
+        cy.get("#social-media").check();
+        
+    })
+  
     it("has 'TICKETBOX' header's heading" , () => {});
 });
