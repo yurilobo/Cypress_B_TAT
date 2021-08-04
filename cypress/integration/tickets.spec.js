@@ -70,12 +70,12 @@ describe("Tickets",()=>{
         cy.get("#signature").type(fullName);
 
         cy.get("button[type='submit']")
-        .as("submitButton")//case sesitive maiusculas importão
-        .should("not.be.disabled");
-
-        cy.get("button[type='reset']").click();
-
-        cy.get("@submitButton").should("be.disabled");
+        .as("submitButton")
+        .should("be.disabled");
+  
+      cy.get("button[type='reset']").click();
+  
+      cy.get("@submitButton").should("be.disabled");
     });
 
 });
