@@ -1,7 +1,7 @@
 describe("Tickets",()=>{
     beforeEach(()=>cy.visit("https://bit.ly/2XSuwCW"));
 
-    it.only("fills all the text input fields", ()=>{
+    it("fills all the text input fields", ()=>{
         const firstName = "Yuri";
         const lastName = "Test Cypress";
 
@@ -10,6 +10,9 @@ describe("Tickets",()=>{
         cy.get("#email").type("teste1@gmail.com");
         cy.get("#requests").type("Vegetarin");
         cy.get("#signature").type(`${firstName} ${lastName}`);
+    })
+    it.only("Select four tickets", ()=>{
+        cy.get("#ticket-quantity").select("4");
     })
     it("has 'TICKETBOX' header's heading" , () => {});
 });
